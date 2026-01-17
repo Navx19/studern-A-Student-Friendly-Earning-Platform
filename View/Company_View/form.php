@@ -15,7 +15,6 @@ session_start();
 
             let result = document.getElementById("result");
 
-            // Get form values
             let jobtitle = document.getElementById("jobtitle").value.trim();
             let companyname = document.getElementById("companyname").value.trim();
             let jobdescription = document.getElementById("jobdescription").value.trim();
@@ -24,7 +23,6 @@ session_start();
             let deadline = document.getElementById("applicationdeadline").value;
             let jobFile = document.getElementById("jobfile").files[0];
 
-            // Basic validation
             if (!jobtitle || !companyname || !jobdescription || !commission || !contactemail || !deadline) {
                 result.style.color = "red";
                 result.innerHTML = "All fields are required";
@@ -43,7 +41,7 @@ session_start();
                 return;
             }
 
-            // File validation (optional)
+            
             if (jobFile) {
                 let allowed = ['image/jpeg', 'image/png', 'application/pdf'];
                 let maxSize = 2 * 1024 * 1024; // 2MB
@@ -60,7 +58,7 @@ session_start();
                 }
             }
 
-            // Send form via AJAX
+            
             let form = document.getElementById("jobForm");
             let formData = new FormData(form);
 

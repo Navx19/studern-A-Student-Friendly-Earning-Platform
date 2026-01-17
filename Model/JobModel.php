@@ -15,7 +15,6 @@ class JobModel {
              VALUES (?, ?, ?, ?, ?, ?, ?)"
         );
 
-        // commission numeric, others string
         $stmt->bind_param("ssdssss", $jobtitle, $companyname, $jobdescription, $commission, $contactemail, $deadline, $filename);
 
         if ($stmt->execute()) {
