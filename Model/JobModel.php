@@ -15,7 +15,7 @@ class JobModel {
              VALUES (?, ?, ?, ?, ?, ?, ?)"
         );
 
-        $stmt->bind_param("ssdssss", $jobtitle, $companyname, $jobdescription, $commission, $contactemail, $deadline, $filename);
+        $stmt->bind_param("sssdsss", $jobtitle, $companyname, $jobdescription, $commission, $contactemail, $deadline, $filename);
 
         if ($stmt->execute()) {
             return ["success" => true, "message" => "Job posted successfully"];
