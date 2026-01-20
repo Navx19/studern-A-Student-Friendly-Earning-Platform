@@ -9,7 +9,7 @@ require_once __DIR__ . "/../../Model/adminModel.php";
 $adminModel = new AdminModel();
 
 if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['submit'])) {
-    $id = intval($_POST["id"]);
+    $id = intval($_POST["userId"]);
     $name = $_POST["name"];
     $email = $_POST["email"];
     $role = $_POST["role"];
@@ -23,7 +23,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['submit'])) {
 }
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['delete'])) {
-    $id = intval($_POST['id']);
+    $id = intval($_POST['userId']);
     if ($id > 0) {
         $adminModel->deleteUser($id);
         header("Location: ../../View/Admin_View/ManageCustomer/getuser.php?msg=Deletion Successful");
