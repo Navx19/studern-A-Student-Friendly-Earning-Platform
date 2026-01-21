@@ -33,6 +33,7 @@ class UserModel {
         return $success;
     }
 
+
     public function __destruct() {
         $db = new DatabaseConnection();
         $db->closeConnection($this->conn);

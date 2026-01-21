@@ -27,7 +27,7 @@ $users = $adminModel->getAllUsers();
             <a href="../../Controller/admin/manageStudents.php">Manage Students</a>
             <a href="../../Controller/admin/manageCompanies.php">Manage Customers</a>
             <a href="../../Controller/admin/manageProjects.php">Manage Projects</a>
-            <a href="../../Controller/admin/feedback.php">FeedBack and Requests</a>
+            <a href="adminfeedback.php">FeedBack</a>
             <a href="../logout.php" class="logout">Logout</a>
         </div>
     </div>
