@@ -53,28 +53,28 @@ class AdminModel
 
     public function getStudents()
     {
-        $stmt = $this->conn->prepare("SELECT id, name, email FROM users WHERE role='student' ORDER BY id ");
+        $stmt = $this->conn->prepare("SELECT userId, name, email FROM users WHERE role='student' ORDER BY userId ");
         $stmt->execute();
         return $stmt->get_result();
     }
 
     public function getCompanies()
     {
-        $stmt = $this->conn->prepare("SELECT id, name, email FROM users WHERE role='customer' ORDER BY id ");
+        $stmt = $this->conn->prepare("SELECT userId, name, email FROM users WHERE role='customer' ORDER BY userId ");
         $stmt->execute();
         return $stmt->get_result();
     }
 
     public function getProjects()
     {
-        $stmt = $this->conn->prepare("SELECT id, jobtitle, companyname, jobdescription, commission FROM jobs ORDER BY id");
+        $stmt = $this->conn->prepare("SELECT jobId, jobtitle, companyname, jobdescription, commission FROM jobs ORDER BY jobId");
         $stmt->execute();
         return $stmt->get_result();
     }
 
     public function getUserById($id)
     {
-        $stmt = $this->conn->prepare("SELECT id, name, email, role FROM users WHERE id = ?");
+        $stmt = $this->conn->prepare("SELECT userId, name, email, role FROM users WHERE userId = ?");
         $stmt->bind_param("i", $id);
         $stmt->execute();
         $res = $stmt->get_result();
@@ -85,7 +85,7 @@ class AdminModel
 
     public function updateUser($id, $name, $email, $role)
     {
-        $stmt = $this->conn->prepare("UPDATE users SET name=?, email=?, role=? WHERE id=?");
+        $stmt = $this->conn->prepare("UPDATE users SET name=?, email=?, role=? WHERE userId=?");
         $stmt->bind_param("sssi", $name, $email, $role, $id);
         $result = $stmt->execute();
         $stmt->close();
@@ -94,7 +94,7 @@ class AdminModel
 
     public function deleteUser($id)
     {
-        $stmt = $this->conn->prepare("DELETE FROM users WHERE id=?");
+        $stmt = $this->conn->prepare("DELETE FROM users WHERE userId=?");
         $stmt->bind_param("i", $id);
         $result = $stmt->execute();
         $stmt->close();
@@ -105,6 +105,36 @@ class AdminModel
     {
         return $this->getUserById($id);
     }
+
+    public function saveMessage($userId, $subject, $message)
+    {
+        $stmt = $this->conn->prepare(
+            "INSERT INTO admin_messages (userId, subject, message, created_at)
+         VALUES (?, ?, ?, NOW())"
+        );
+        $stmt->bind_param("iss", $userId, $subject, $message);
+        return $stmt->execute();
+    }
+
+        public function getAllMessages() {
+    $sql = "
+        SELECT m.message_id, u.name, u.email, m.subject, m.message, m.created_at
+        FROM admin_messages m
+        JOIN users u ON m.userId = u.userId
+        ORDER BY m.created_at DESC
+    ";
+    $result = $this->conn->query($sql);
+
+    $messages = [];
+    if ($result && $result->num_rows > 0) {
+        while ($row = $result->fetch_assoc()) {
+            $messages[] = $row;
+        }
+    }
+    return $messages;
+}
+
+
 
 
 

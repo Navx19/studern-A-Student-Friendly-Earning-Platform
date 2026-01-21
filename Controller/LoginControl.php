@@ -20,7 +20,7 @@ $db = new DatabaseConnection();
 $conn = $db->openConnection();
 
 $stmt = $conn->prepare(
-    "SELECT id, email, password, role FROM users WHERE email = ?"
+    "SELECT userId, email, password, role FROM users WHERE email = ?"
 );
 $stmt->bind_param("s", $email);
 $stmt->execute();
@@ -44,7 +44,7 @@ if (!password_verify($password, $user["password"])) {
     exit;
 }
 
-$_SESSION["id"]    = $user["id"];
+$_SESSION["id"]    = $user["userId"];
 $_SESSION["email"] = $user["email"];
 $_SESSION["role"]  = $user["role"];
 

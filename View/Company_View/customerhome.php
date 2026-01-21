@@ -33,7 +33,7 @@ $applications = $model->getApplicationsByCustomer($customerId);
                     result.style.color = res.success ? "green" : "red";
                     result.innerHTML = res.message;
                     if (res.success) {
-                        location.reload(); // refresh to show updated statuses
+                        location.reload(); // refresh 
                     }
                 } catch (err) {
                     result.style.color = "red";
@@ -50,8 +50,10 @@ $applications = $model->getApplicationsByCustomer($customerId);
         <h2>studern</h2>
         <h3>Customer Dashboard</h3>
         <div class="header-links">
-            <a href="form.php">Post a Job</a>
-            <a href="../Admin_View/feedback.php">Contact Admin</a>
+            <a href="customerhome.php">Home</a>
+            <a href="form.php">Post Job</a>
+            <a href="cus_profile.php">My Profile</a>
+            <a href="../contactadmin.php">Contact Admin</a>
             <a href="../Logout.php" class="logout">Logout</a>
         </div>
     </div>
