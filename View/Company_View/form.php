@@ -121,7 +121,7 @@ session_start();
             <input type="submit" value="Post">
             <button type="reset">Reset</button><br><br>
 
-            <button type="button" onclick="window.location.href='customerhome.php'">Back to Home</button>
+            <button type="button" onclick="window.location.href='customerhome.php'">Back</button>
 
             <p id="result" class="result-message"></p>
         </form>

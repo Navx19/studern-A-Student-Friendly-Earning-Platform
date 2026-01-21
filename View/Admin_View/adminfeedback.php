@@ -18,8 +18,8 @@ $messages = $adminModel->getAllMessages();
     <title>Admin Feedback</title>
 </head>
 <body>
-    <h2>Feedback from Users</h2>
-    <table border="1" cellpadding="8" cellspacing="0">
+    <h2>Feedback</h2>
+    <table border ="1" cellpadding="8" cellspacing="0">
         <tr>
             <th>Message ID</th>
             <th>User Name</th>
@@ -47,7 +47,7 @@ $messages = $adminModel->getAllMessages();
     </table>
 
     <br>
-    <a href="../adminhome.php"><button type="button">Back to Admin Dashboard</button></a>
-    <a href="../../Logout.php"><button type="button">Logout</button></a>
+    <a href="adminhome.php"><button type="button">Back</button></a>
+    <a href="../Logout.php"><button type="button">Logout</button></a>
 </body>
 </html>

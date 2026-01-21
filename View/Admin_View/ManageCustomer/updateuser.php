@@ -31,7 +31,6 @@ $user = $adminModel->findUser($_GET["user_id"]);
         <select name="role">
             <option value="student" <?php if($user['role']=='student') echo 'selected'; ?>>Student</option>
             <option value="customer" <?php if($user['role']=='customer') echo 'selected'; ?>>Customer</option>
-            <option value="admin" <?php if($user['role']=='admin') echo 'selected'; ?>>Admin</option>
         </select><br><br>
 
         <input type="submit" value="Submit" name="submit">
