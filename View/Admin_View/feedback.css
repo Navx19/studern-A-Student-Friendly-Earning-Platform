@@ -1,20 +1,18 @@
 body {
     font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
-    background: #121212;
+    background: black;
     margin: 0;
     padding: 40px;
-    color: #e7e7e7;
+    color: white;
 }
 
-/* Heading */
 h2 {
     text-align: center;
     font-size: 2rem;
     margin-bottom: 24px;
-    color: #c0c0c0;
+    color: white;
 }
 
-/* Table styling */
 table {
     width: 100%;
     max-width: 900px;
@@ -46,7 +44,6 @@ table tr:hover {
     background: rgba(83,0,197,0.25);
 }
 
-/* Buttons */
 button {
     display: inline-block;
     margin: 0 8px;
